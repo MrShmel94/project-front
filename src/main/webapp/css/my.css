@@ -1,0 +1,17 @@
+#table th{
+    border-style: double;
+    color: blue;
+}
+
+#table td{
+    border-style: double;
+    color: red;
+}
+
+/*#deleteBut{*/
+/*    background: url("/img/delete.png");*/
+/*}*/
+
+a:hover:not(.active){
+    background-color: red;
+}

@@ -1,11 +1,98 @@
 <html>
 <head>
     <title>RPG</title>
+    <meta charset="utf-8">
+    <meta id="root" about="${pageContext.request.contextPath}">
     <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
+    <script src="/html/main.js" async></script>
+<!--    <script type="text/javascript" src="${pageContext.request.contextPath}/html/main.js">
+    </script>-->
     <link href="/css/my.css" rel="stylesheet">
 </head>
-<body>
+<body onload="loadValue()">
 <h1>RPG admin panel</h1>
+
+<h3>Account list:</h3>
+
+<select id="selected" onchange="loadValue()">
+    <option selected>3</option>
+    <option>5</option>
+    <option>10</option>
+    <option>20</option>
+</select>
+<label style="float: left; margin-right: 5px">Count per page: </label>
+
+<table id="table">
+    <tr>
+        <title>Accounts list</title>
+        <th>#</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Race</th>
+        <th>Profession</th>
+        <th>Level</th>
+        <th>Birthday</th>
+        <th>Banned</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tbody id="mainTable">
+
+    </tbody>
+</table>
+<div>
+    <label style="float: left">Page: </label>
+   <ul id="pageBar" style="margin-top: 2px">
+
+   </ul>
+</div>
+
+<div class="col">
+    <form id="newCharForm">
+        <label class="col-form-label-sm" for="newCharName">Name:</label>
+        <input class="form-control form-control-sm" type="text" id="newCharName" size="20" name="newCharName" value="" placeholder="Enter new Name">
+        <label class="label-alert" id="newCharNameAlert"></label>
+        <label class="col-form-label-sm" for="newCharTitle">Title:</label>
+        <input class="form-control form-control-sm" type="text" id="newCharTitle" size="30" name="newCharTitle" value="" placeholder="Enter new Title">
+        <label class="label-alert" id="newCharTitleAlert"></label>
+        <label class="col-form-label-sm" for="newCharRaceSelect">Race:</label>
+        <select class="form-select form-select-sm" id="newCharRaceSelect">
+            <option value="HUMAN">HUMAN</option>
+            <option value="DWARF">DWARF</option>
+            <option value="ELF">ELF</option>
+            <option value="GIANT">GIANT</option>
+            <option value="ORC">ORC</option>
+            <option value="TROLL">TROLL</option>
+            <option value="HOBBIT">HOBBIT</option>
+        </select>
+        <label class="col-form-label-sm" for="newCharProfessionSelect">Profession:</label>
+        <select class="form-select form-select-sm" id="newCharProfessionSelect">
+            <option value="WARRIOR">WARRIOR</option>
+            <option value="ROGUE">ROGUE</option>
+            <option value="SORCERER">SORCERER</option>
+            <option value="CLERIC">CLERIC</option>
+            <option value="PALADIN">PALADIN</option>
+            <option value="NAZGUL">NAZGUL</option>
+            <option value="WARLOCK">WARLOCK</option>
+            <option value="DRUID">DRUID</option>
+        </select>
+        <label class="col-form-label-sm" for="newCharLevel">Level:</label>
+        <input class="form-control form-control-sm" type="text" id="newCharLevel" size="20" name="newCharTitle" value="" placeholder="Enter level">
+        <label class="label-alert" id="newCharLevelAlert"></label>
+        <label class="col-form-label-sm" for="newCharBirthday">Birthday:</label>
+        <input class="form-control" type="date" id="newCharBirthday">
+        <label class="label-alert"  id="newCharBirthdayAlert"></label>
+        <label class="col-form-label-sm" for="newCharBanned">Banned:</label>
+        <select class="form-select form-select-sm" id="newCharBanned">
+            <option value="false">false</option>
+            <option value="true">true</option>
+        </select>
+        <div class="mb-3">
+        </div>
+        <a href="#" class="btn btn-sm btn-primary" id="saveNewChar">Save New Char</a>
+    </form>
+</div>
+
 
 </body>
 </html>
