@@ -12,7 +12,7 @@
 <body onload="loadValue()">
 <h1>RPG admin panel</h1>
 
-<h3>Account list:</h3>
+<h2>Account list:</h2>
 
 <select id="selected" onchange="loadValue()">
     <option selected>3</option>
@@ -47,49 +47,60 @@
    </ul>
 </div>
 
-<div class="col">
+<h2>Create new account:</h2>
+
+<div class="newChar">
     <form id="newCharForm">
-        <label class="col-form-label-sm" for="newCharName">Name:</label>
-        <input class="form-control form-control-sm" type="text" id="newCharName" size="20" name="newCharName" value="" placeholder="Enter new Name">
-        <label class="label-alert" id="newCharNameAlert"></label>
-        <label class="col-form-label-sm" for="newCharTitle">Title:</label>
-        <input class="form-control form-control-sm" type="text" id="newCharTitle" size="30" name="newCharTitle" value="" placeholder="Enter new Title">
-        <label class="label-alert" id="newCharTitleAlert"></label>
-        <label class="col-form-label-sm" for="newCharRaceSelect">Race:</label>
-        <select class="form-select form-select-sm" id="newCharRaceSelect">
-            <option value="HUMAN">HUMAN</option>
-            <option value="DWARF">DWARF</option>
-            <option value="ELF">ELF</option>
-            <option value="GIANT">GIANT</option>
-            <option value="ORC">ORC</option>
-            <option value="TROLL">TROLL</option>
-            <option value="HOBBIT">HOBBIT</option>
-        </select>
-        <label class="col-form-label-sm" for="newCharProfessionSelect">Profession:</label>
-        <select class="form-select form-select-sm" id="newCharProfessionSelect">
-            <option value="WARRIOR">WARRIOR</option>
-            <option value="ROGUE">ROGUE</option>
-            <option value="SORCERER">SORCERER</option>
-            <option value="CLERIC">CLERIC</option>
-            <option value="PALADIN">PALADIN</option>
-            <option value="NAZGUL">NAZGUL</option>
-            <option value="WARLOCK">WARLOCK</option>
-            <option value="DRUID">DRUID</option>
-        </select>
-        <label class="col-form-label-sm" for="newCharLevel">Level:</label>
-        <input class="form-control form-control-sm" type="text" id="newCharLevel" size="20" name="newCharTitle" value="" placeholder="Enter level">
-        <label class="label-alert" id="newCharLevelAlert"></label>
-        <label class="col-form-label-sm" for="newCharBirthday">Birthday:</label>
-        <input class="form-control" type="date" id="newCharBirthday">
-        <label class="label-alert"  id="newCharBirthdayAlert"></label>
-        <label class="col-form-label-sm" for="newCharBanned">Banned:</label>
-        <select class="form-select form-select-sm" id="newCharBanned">
-            <option value="false">false</option>
-            <option value="true">true</option>
-        </select>
-        <div class="mb-3">
+        <div class="form-group col-md-3">
+            <label for="inputName">Name:</label>
+            <input type="text" class="form-control" id="inputName" size="12" placeholder="Enter name">
         </div>
-        <a href="#" class="btn btn-sm btn-primary" id="saveNewChar">Save New Char</a>
+        <div class="form-group col-md-3">
+            <label for="titleName">Title:</label>
+            <input type="text" class="form-control" id="titleName" size="30" placeholder="Enter title">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="newRace">Race:</label>
+            <select id="newRace" class="form-control">
+                <option selected value="HUMAN">HUMAN</option>
+                <option value="DWARF">DWARF</option>
+                <option value="ELF">ELF</option>
+                <option value="GIANT">GIANT</option>
+                <option value="ORC">ORC</option>
+                <option value="TROLL">TROLL</option>
+                <option value="HOBBIT">HOBBIT</option>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="newProfession">Profession:</label>
+            <select id="newProfession" class="form-control">
+                <option selected value="WARRIOR">WARRIOR</option>
+                <option value="ROGUE">ROGUE</option>
+                <option value="SORCERER">SORCERER</option>
+                <option value="CLERIC">CLERIC</option>
+                <option value="PALADIN">PALADIN</option>
+                <option value="NAZGUL">NAZGUL</option>
+                <option value="WARLOCK">WARLOCK</option>
+                <option value="DRUID">DRUID</option>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputLevel">Level:</label>
+            <input type="number" min="0" max="100" class="form-control" id="inputLevel" size="12" placeholder="Enter level">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputDate">Date:</label>
+            <input type="date" class="form-control" id="inputDate">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="selectedBanned">Banned:</label>
+            <select id="selectedBanned" class="from-control">
+                <option selected value="TRUE">TRUE</option>
+                <option value="FALSE">FALSE</option>
+            </select>
+        </div>
+
+        <a href="#" class="btn btn-sm btn-primary" id="saveNewChar" onclick="saveNewChar()">Save New Char</a>
     </form>
 </div>
 

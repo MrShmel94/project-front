@@ -6,6 +6,14 @@ function GET(url) {
     return ur;
 }
 
+function POST(url, body) {
+    let ur = new XMLHttpRequest();
+    ur.open('POST', url, false);
+    ur.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+    ur.send(body);
+    return ur;
+}
+
 
 function loadValue(pageNumbers){
     if (isNaN(pageNumbers)){
@@ -115,5 +123,30 @@ function deleteId (id){
     let ur = new XMLHttpRequest();
     ur.open('DELETE', ("/rest/players/" + id), false);
     ur.send(null);
+}
+
+function saveNewChar(){
+    let body = {};
+    body.name = document.getElementById("inputName").value;
+    body.title = document.getElementById("titleName").value;
+    body.race = document.getElementById("newRace").value;
+    body.profession = document.getElementById("newProfession").value;
+    body.level = document.getElementById("inputLevel").value;
+    body.birthday = new Date(document.getElementById("inputDate").value).getTime();
+    let ban = document.getElementById("selectedBanned").value;
+    body.banned = ban !== "FALSE";
+
+    let responce = POST("/rest/players/", JSON.stringify(body));
+    if (responce.status === 200){
+        document.getElementById("inputName").value = "";
+        document.getElementById("titleName").value = "";
+        document.getElementById("newRace").value = "HUMAN";
+        document.getElementById("newProfession").value = "WARRIOR";
+        document.getElementById("inputLevel").value = "";
+        document.getElementById("inputDate").value = "";
+        document.getElementById("selectedBanned").value = "TRUE";
+    }
+
+    loadValue();
 }
 
